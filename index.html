@@ -1,5 +1,90 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="utf-8" /></head>
-<body>Arquivo gerado corretamente.</body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Achados Promo Clube — Loja</title>
+  <meta name="description" content="Achados Promo Clube — seus melhores achados. Clique para acessar a vitrine." />
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#0f1724;
+      color:#fff;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+    .card{
+      background:#161f31;
+      padding:28px;
+      border-radius:14px;
+      max-width:600px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 6px 18px rgba(0,0,0,0.4);
+    }
+    h1{margin-top:0;font-size:24px}
+    p{color:#b9c2ce}
+    .btn{
+      display:inline-block;
+      margin-top:18px;
+      padding:12px 18px;
+      background:#10b981;
+      color:#042027;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:700;
+    }
+    .copy{
+      margin-top:12px;
+      padding:10px 16px;
+      border:1px solid #3a465a;
+      background:transparent;
+      color:#d9e0ea;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    footer{
+      margin-top:20px;
+      font-size:13px;
+      color:#8b97a7;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Achados Promo Clube</h1>
+    <p>Clique abaixo para acessar a vitrine oficial.</p>
+
+    <a class="btn" id="open-store" href="https://collshp.com/achadospromoclube?view=storefront" target="_blank" rel="noopener noreferrer">
+      Abrir vitrine
+    </a>
+
+    <br>
+
+    <button class="copy" id="copy-link">Copiar link</button>
+
+    <footer>Gerado automaticamente — <span id="year"></span></footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const url = "https://collshp.com/achadospromoclube?view=storefront";
+    document.getElementById("copy-link").onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        document.getElementById("copy-link").innerText = "Copiado!";
+        setTimeout(() => {
+          document.getElementById("copy-link").innerText = "Copiar link";
+        }, 1500);
+      } catch {
+        alert("Não foi possível copiar automaticamente. Copie manualmente: " + url);
+      }
+    };
+  </script>
+</body>
 </html>
